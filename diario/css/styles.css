@@ -3,5 +3,7 @@ img.img-noticia {
 }
 
 .title{
+    text-align: center;
     color: brown;
+    background-color: rgb(128, 156, 100);
 }
