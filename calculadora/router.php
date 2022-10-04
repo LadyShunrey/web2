@@ -1,7 +1,7 @@
 <?php
-    require_once('pi.php');
-    require_once('about.php');
-    require_once('operaciones.php');
+    require_once('sections.php');
+    require_once('libreria/operaciones.php');
+
     //require_once('calculadora.php'); NO LO VAMOS A INCLUIR POR AHORA PORQUE TENEMOS OPERACIONES
 
     if(!empty($_GET['action'])){
@@ -15,7 +15,7 @@
 
     switch($params[0]){
         case'home':
-            showHome();
+            showCalculadora();
             break;
         case 'sumar':
             sumar($params[1], $params[2]);
@@ -40,5 +40,10 @@
                 showAbout($params[1]);
             }
             break;
+        case 'contact':
+            showContactForm();
+            break;
         default:
+            echo('404 página no encontrada');
+            break;
     }
