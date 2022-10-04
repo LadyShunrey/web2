@@ -2,6 +2,8 @@
     require_once('sections.php');
     require_once('libreria/operaciones.php');
 
+    define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+
     //require_once('calculadora.php'); NO LO VAMOS A INCLUIR POR AHORA PORQUE TENEMOS OPERACIONES
 
     if(!empty($_GET['action'])){
