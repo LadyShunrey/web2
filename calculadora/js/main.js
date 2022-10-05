@@ -21,7 +21,7 @@ async function enviar(e){
         'method' : method
     })
 
-    let html h= await response.text();
+    let html = await response.text();
 
     container.innerHTML = html;
 }
