@@ -20,3 +20,27 @@
         return $tasks;
 
     }
+
+    //inserta una tarea en la db
+    function insertTask($titulo, $descripcion, $prioridad){
+        $db = new PDO('mysql:host=localhost;'.'dbname=db_tasks;charset=utf8','root','');
+
+        $query = $db->prepare('INSERT INTO task(titulo, descripcion, prioridad) VALUES(?, ?, ?)');
+        $query->execute([$titulo, $descripcion, $prioridad]);
+
+        //Obtengo y devuelvo el ID de la tarea nueva
+        return $db->lastInsertId();
+    }
+
+    function deleteTask($id){
+        $db = new PDO('mysql:host=localhost;'.'dbname=db_tasks;charset=utf8','root','');
+        $query = $db->prepare('DELETE FROM `task` WHERE `task`.`id` = ?');
+        $query->execute([$id]);
+        
+    }
+
+    function updateTask($id){
+        $db = new PDO('mysql:host=localhost;'.'dbname=db_tasks;charset=utf8','root','');
+        $query = $db->prepare('UPDATE task SET finalizada=1 WHERE task.id = ?'); //finalizada con signo de pregunta
+        $query->execute([$id]); //agregar antes $completed
+    }
