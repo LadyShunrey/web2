@@ -1,13 +1,12 @@
 <?php
-    require_once 'db.php';
 
-    function showTasks(){
+class TaskView{
+    function showTasks($tasks){
         include './templates/header.php';
         include './templates/form_alta.php';
 
         echo "hola! acá listo las tareas";
-        //pido las tareas a la db
-        $tasks = getAllTasks();
+        
         echo'<ul class="list-group mt-5">';
         foreach($tasks as $task){
             if($task->finalizada == 1){
@@ -21,29 +20,4 @@
         
         include './templates/footer.php';
     }
-
-    function addTask(){
-        $titulo = $_REQUEST['titulo'];
-        $prioridad = $_REQUEST['prioridad'];
-        $descripcion = $_REQUEST['descripcion'];
-
-        $id = insertTask($titulo, $descripcion, $prioridad);
-
-        //redirijo al home
-        header("Location: " . BASE_URL);
-    }
-
-    function delTask($id){
-        $delete = deleteTask($id);
-
-        //redirijo al home
-        header("Location: " . BASE_URL);
-    }
-
-    function completeTask($id){
-        //acá voy a hacer un $completed = $_REQUEST['completed'];
-
-        $updated = updateTask($id); //después de $id agrego $completed
-        //redirijo al home
-        header("Location: " . BASE_URL);
-    }
+}

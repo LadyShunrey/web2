@@ -1,6 +1,7 @@
 <?php
 
     require_once './app/tasks.php';
+    require_once('controllers/task.controller.php');
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -17,19 +18,20 @@
     //LISTAR -> lista todas las tareas
     //insertar -> inserta una nueva tarea (recibe el POST)
 
+    $controller = new TaskController();
+
     switch($params[0]){
         case 'listar':
-            //listar todas las tardeas de la DB
-            showTasks();
+            $controller->showTasks();
             break;
         case 'insertar':
-            addTask();
+            $controller->addTask();
             break;
         case 'borrar':
-            delTask($params[1]);
+            $controller->delTask($params[1]);
             break;
         case 'completar':
-            completeTask($params[1]);
+            $controller->completeTask($params[1]);
         default:
             echo'404 - Página no encontrada';
             break;
