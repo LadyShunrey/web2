@@ -1,23 +1,31 @@
 <?php
 
-class TaskView{
-    function showTasks($tasks){
-        include './templates/header.php';
-        include './templates/form_alta.php';
+require_once 'libs/smarty-4.2.1/libs/Smarty.class.php';
 
-        echo "hola! acá listo las tareas";
-        
-        echo'<ul class="list-group mt-5">';
-        foreach($tasks as $task){
-            if($task->finalizada == 1){
-                echo "<li class='list-group-item-success'>$task->titulo - $task->prioridad - <button class='btn btn-danger'> <a href='borrar/$task->id'> BORRAR </a> </button> </li>";
-            }
-            else{
-                echo "<li class='list-group-item'>$task->titulo - $task->prioridad - <button class='btn btn-danger'> <a href='borrar/$task->id'> BORRAR </a> </button> <button class='btn btn-primary'> <a href='completar/$task->id'> COMPLETAR </a> </button></li>";
-            }
-        }
-        echo'</ul>';
-        
-        include './templates/footer.php';
+ 
+class TaskView{
+
+    private $smarty;
+
+    function __construct(){
+        $this->smarty = new Smarty();
     }
+
+    function showTasks($tasks){
+        $this->smarty->assign('titulo', 'TO DO LIST');
+
+        $this->smarty->assign('tasks', $tasks);
+        $this->smarty->display('./templates/taskList.tpl');
+    }
+
+    function showTask($task){
+        $this->smarty->assign('task', $task);
+
+        $this->smarty->display('templates/taskDetail.tpl');
+    }
+
+    function showHomeLocation(){
+        header("Location: " . BASE_URL. "home");
+    }
+
 }

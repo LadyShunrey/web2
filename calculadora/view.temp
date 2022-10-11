@@ -1,0 +1,54 @@
+echo"ERROR: Parámetros incorrectos";
+
+echo"Operación no válida";
+
+echo('
+                    
+
+                </body>
+            </html>
+
+        ');
+
+echo('
+            
+        '); 
+
+echo ('
+    
+                <h1>Acerca de </h1>
+                <p>El Autor '.$autor.'.</p>
+        
+            </body>
+        </html>');
+
+echo'ERROR: parámetro autor no recibido.
+            </body>
+        </html>';
+
+echo 'En construcción';
+
+echo('
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <base href="'.BASE_URL.'">
+                <link rel="stylesheet" href="css/style.css" target="_blank">
+                <title>Calculadora</title>
+            </head>
+            <body>
+        ');
+
+ echo('
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="home">Calculadora</a></li>
+                    <li><a href="pi">Pi</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact us</a></li>
+                </ul>
+            </nav>
+        ');

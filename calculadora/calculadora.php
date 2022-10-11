@@ -3,7 +3,7 @@
     require_once('operaciones.php');
 
     if((!is_numeric($_REQUEST['valor1'])) || (!is_numeric($_REQUEST['valor2'])) || empty($_REQUEST['operacion'])){
-        echo"ERROR: Parámetros incorrectos";
+        
         die();
     }
 
@@ -33,6 +33,6 @@
 
         default:
             $resultado = 0;
-            echo"Operación no válida";
+            
             break;
     }

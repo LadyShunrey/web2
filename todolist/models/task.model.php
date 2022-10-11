@@ -45,4 +45,11 @@ class TaskModel{
         $query = $this->db->prepare('UPDATE task SET finalizada=1 WHERE task.id = ?'); //finalizada con signo de pregunta
         $query->execute([$id]); //agregar antes $completed
     }
+
+    function getTask($id){
+        $query = $this->db->prepare('SELECT * FROM task WHERE task.id=?');
+        $query->execute([$id]);
+        $task = $query->fetch(PDO::FETCH_OBJ);
+        return $task;
+    }
 }

@@ -1,6 +1,4 @@
 <?php
-
-    require_once './app/tasks.php';
     require_once('controllers/task.controller.php');
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -9,7 +7,7 @@
         $action = $_GET['action'];
     }
     else{
-        $action = 'listar';
+        $action = 'home';
     }
 
     $params = explode('/', $action);
@@ -21,7 +19,7 @@
     $controller = new TaskController();
 
     switch($params[0]){
-        case 'listar':
+        case 'home':
             $controller->showTasks();
             break;
         case 'insertar':
@@ -32,6 +30,10 @@
             break;
         case 'completar':
             $controller->completeTask($params[1]);
+            break;
+        case 'viewTask':
+            $controller->viewTask($params[1]);
+            break;
         default:
             echo'404 - Página no encontrada';
             break;

@@ -15,12 +15,9 @@ class TaskController{
     
     public function showTasks(){
         //obtengo tareas del model
-        //$model = new TaskModel();
         $tareas = $this->model->getAllTasks();
 
         //se las paso a la vista
-
-        //$view - new TaskView();
         $this->view->showTasks($tareas);
     }
     
@@ -48,5 +45,10 @@ class TaskController{
         $this->model->updateTask($id); //después de $id agrego $completed
         //redirijo al home
         header("Location: " . BASE_URL);
+    }
+
+    function viewTask($id){
+        $task = $this->model->getTask($id);
+        $this->view->showTask($task);
     }
 }
