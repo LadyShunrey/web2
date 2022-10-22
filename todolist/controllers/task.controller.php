@@ -1,22 +1,28 @@
 <?php
 
-include_once('models/task.model.php');
-include_once('views/task.view.php');
+require_once('models/task.model.php');
+require_once('views/task.view.php');
+require_once('helpers/auth.helper.php');
 
 class TaskController{
 
     private $model;
     private $view;
 
+    private $authHelper;
+
     public function __construct(){
         $this->model = new TaskModel();
         $this->view = new TaskView();
+        $this->authHelper = new AuthHelper();
+
+        //verificar que esté loggueado
+        $this->authHelper->checkLoggedIn();
     }
     
     public function showTasks(){
         //obtengo tareas del model
         $tareas = $this->model->getAllTasks();
-
         //se las paso a la vista
         $this->view->showTasks($tareas);
     }
@@ -51,4 +57,6 @@ class TaskController{
         $task = $this->model->getTask($id);
         $this->view->showTask($task);
     }
+
+    
 }
