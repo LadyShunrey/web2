@@ -214,9 +214,65 @@ echo('
 
     echo ('<h1> Práctico 1 </h1>
     <h2> Ejercicio 7 </h2>
-    <h3> invertir dinero en un banco </h3>
-    <p> </p>
+    <h3> El banco otorga %mensual, hacer un programa que simule la inversión para saber cual ser a el dinero que 
+    tendra mes a mes durante un año, el resultado en una tabla </h3>
+    <p> Ingrese cuánto quiere invertir: </p>
     ');
 
+    
+
+    echo('
+
+    <form action="index.php" id="inversion" method="GET">
+        <label for="">Monto a invertir </label>
+        <input type="" name="inversion" id="">
+        <button type="submit">Guardar</button>
+    </form>
+    ');
+
+    
+    
+
+    if(isset($_GET['inversion'])){
+        $meses = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
+        $count = count($meses);
+        $inversion = $_GET['inversion'];
+        echo('el monto a invertir es '.$inversion);
+        $porcentaje = 20/100;
+        $ganancia = 0;
+        
+
+        echo('
+            <table>
+                <thead>
+                    <tr>
+                        ');
+                        foreach($meses as $mes){
+                            echo('<th> '.$mes.' </th>');  
+                        }
+                        echo('
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+        ');
+
+        
+            
+            for ($i=0; $i <= $count; $i++) { 
+                $ganancia += $inversion + $inversion * $porcentaje;
+                echo('
+                <td>'. $ganancia .' </td>');
+            }
+            
+        
+        echo('
+            </tr>
+            </tbody>
+
+        </table>
+        ');
+        
+    } 
 
 echo ('');
