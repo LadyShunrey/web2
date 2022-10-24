@@ -9,11 +9,11 @@ echo('
     <p> </p>
 
     <p> i) Obtener el detalle completo de un vuelo determinado dado su numero de vuelo </p>
-    <p> GET api/vuelo/:id_vuelo  </p>
+    <p> GET api/vuelo/:nro_vuelo  </p>
     <p> </p>
 
     <p> ii) Obtener todas las ciudades en la aerolinea tiene alcance</p>
-    <p> GET api/aerolinea/destinos ?? </p>
+    <p> GET api/destinos </p>
     <p> </p>
 
     <p> iii) Insertar un vuelo nuevo en el sistema</p>
@@ -21,14 +21,14 @@ echo('
     <p> </p>
 
     <p> iv) Obtener todos los vuelos que aun no salieron (estado=en espera) </p>
-    <p> GET api/vuelo/estado=en-espera</p>
+    <p> GET api/vuelo/:estado=en-espera</p>
     <p> </p>
 
     <p> v) Obtener todos los vuelos entre dos ciudades para un día determinado </p>
-    <p> GET api/vuelo/:ciudad_origen_id_fk/:ciudad_destino_id_fk/fecha_salida </p>
+    <p> GET api/vuelo/:ciudad_origen/:ciudad_destino/:fecha_salida </p>
     <p> </p>
 
     <p> vi) Obetener todos los vuelos con destino Barcelona </p>
-    <p> GET api/vuelo/:ciudad_destino_id_fk=7  (suponiendo que 7="Barcelona")  </p>
+    <p> GET api/vuelo/:ciudad_destino=Barcelona  </p>
     <p> </p>
 ');
